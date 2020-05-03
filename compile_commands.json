@@ -1,0 +1,30 @@
+[
+    {
+        "arguments": [
+            "g++",
+            "-c",
+            "-w",
+            "-I",
+            "includes/",
+            "-o",
+            "sp",
+            "src/Game.cpp"
+        ],
+        "directory": "/home/anay/Game Projects/SimplePlatformer",
+        "file": "src/Game.cpp"
+    },
+    {
+        "arguments": [
+            "g++",
+            "-c",
+            "-w",
+            "-I",
+            "includes/",
+            "-o",
+            "sp",
+            "src/main.cpp"
+        ],
+        "directory": "/home/anay/Game Projects/SimplePlatformer",
+        "file": "src/main.cpp"
+    }
+]
