@@ -89,5 +89,44 @@ void Game::ProcessEvents()
 void Game::Update()
 {
 
+  // Limit framerate
+  while(!SDL_TICKS_PASSED(SDL_GetTicks(), mTicksCount + IDEAL_DELTA_TIME);
+
+  // Compute deltaTime
+  float deltaTime = (SDL_GetTicks() - mTicksCount)/1000.f;
+
+  // Update mTicksCount
+  mTicksCount = SDL_GetTicks();
+
+  // Update all actors
+  mUpdatingActors = true;
+  for(Actor* updateActor : mActors)
+  {
+    updateActor->Update(deltaTime);
+  }
+  mUpdatingActors = false;
+
+  // Process the pending actors
+  for(Actor* pendingActor : mPendingActors)
+  {
+    mActors.emplace_back(pendingActor);
+  }
+  mPendingActors.clear();
+
+  // Add dead actors to temp vector
+  std::vector<Actor*> deadActors;
+  for(Actor* checkDead : mActors)
+  {
+    if(checkDead->GetState() == Actor::State::Dead)
+    {
+      deadActors.emplace_back(checkDead);
+    }
+  }
+
+  // Delete actors from deadActors
+  for(Actor* toKill : deadActors)
+  {
+    delete toKill;
+  }
 }
 
