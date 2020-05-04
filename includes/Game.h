@@ -1,6 +1,7 @@
 #pragma once
 #include <vector>
 #include <SDL2/SDL.h>
+#include "Component.h"
 #include "Actor.h"
 
 class Game
@@ -11,10 +12,18 @@ public:
   void Loop();
   void Quit();
 
+  // Add/Remove Actors
+  void AddActor(class Actor* actor);
+  void RemoveActor(class Actor* actor);
+
 private:
 
+  // Screen dimensions
   const int SCREEN_WIDTH = 1024;
   const int SCREEN_HEIGHT = 768;
+
+  // Target deltaTime in milliseconds
+  const int IDEAL_DELTA_TIME = 16;
 
   SDL_Window* mWindow;
   SDL_Renderer* mRenderer;

@@ -1,17 +1,18 @@
+#pragma once
 #include "Actor.h"
 
 class Component
 {
 private:
 
-  Actor* mOwner;
+  class Actor* mOwner;
 
   int mUpdateOrder;
 
 public:
 
   // Component with lower updateOrder order updates earlier
-  Component(Actor* owner, int updateOrder = 50);
+  Component(class Actor* owner, int updateOrder = 50);
 
   virtual ~Component();
 

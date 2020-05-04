@@ -1,4 +1,3 @@
-#pragma once
 #include "Game.h"
 #include <SDL2/SDL_image.h>
 
@@ -90,7 +89,7 @@ void Game::Update()
 {
 
   // Limit framerate
-  while(!SDL_TICKS_PASSED(SDL_GetTicks(), mTicksCount + IDEAL_DELTA_TIME);
+  while(!SDL_TICKS_PASSED(SDL_GetTicks(), mTicksCount + IDEAL_DELTA_TIME));
 
   // Compute deltaTime
   float deltaTime = (SDL_GetTicks() - mTicksCount)/1000.f;
@@ -128,5 +127,10 @@ void Game::Update()
   {
     delete toKill;
   }
+}
+
+void Game::AddActor(Actor* actor)
+{
+
 }
 

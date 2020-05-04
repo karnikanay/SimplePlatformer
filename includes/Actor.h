@@ -1,6 +1,7 @@
+#pragma once
 #include "Game.h"
-#include "Math.h"
 #include "Component.h"
+#include "Math.h"
 #include <vector>
 
 class Actor
@@ -27,12 +28,12 @@ public:
   virtual void UpdateActor(float deltaTime);
 
   // Add/Remove components
-  void AddComponent(class Component*);
-  void RemoveComponent(class Component*);
+  void AddComponent(class Component* component);
+  void RemoveComponent(class Component* component);
 
   // Getters and Setters
   State GetState();
-  void SetState();
+  void SetState(State newState);
 
 private:
 
