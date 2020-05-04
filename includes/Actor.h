@@ -30,6 +30,10 @@ public:
   void AddComponent(class Component*);
   void RemoveComponent(class Component*);
 
+  // Getters and Setters
+  State GetState();
+  void SetState();
+
 private:
 
   // Components list
