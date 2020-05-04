@@ -1,5 +1,7 @@
 #pragma once
+#include <vector>
 #include <SDL2/SDL.h>
+#include "Actor.h"
 
 class Game
 {
@@ -23,5 +25,13 @@ private:
   void ProcessEvents();
   void Update();
   void GenOutput();
+
+  // Pending actors stores actors which can't be added yet because actors are
+  // updating
+  std::vector<class Actor*> mPendingActors;
+  std::vector<class Actor*> mActors;
+
+  // Stores where actors are updating
+  bool mUpdatingActors;
 };
 
